@@ -11,6 +11,11 @@
 		5DE6AA1C2AE1B72D00F4D971 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6AA1B2AE1B72D00F4D971 /* ContentView.swift */; };
 		5DE6AA1E2AE1B72E00F4D971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6AA1D2AE1B72E00F4D971 /* Assets.xcassets */; };
 		5DE6AA222AE1B72E00F4D971 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6AA212AE1B72E00F4D971 /* Preview Assets.xcassets */; };
+		5DE6AA2B2AE1B9CA00F4D971 /* CardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6AA2A2AE1B9CA00F4D971 /* CardDetails.swift */; };
+		5DE6AA312AE1BBBA00F4D971 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6AA302AE1BBBA00F4D971 /* DetailsView.swift */; };
+		5DE6AA332AE1C67F00F4D971 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6AA322AE1C67F00F4D971 /* CardView.swift */; };
+		5DE6AA352AE1CDA700F4D971 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6AA342AE1CDA700F4D971 /* FeedView.swift */; };
+		5DE6AA392AE1DC9F00F4D971 /* CustomToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6AA382AE1DC9F00F4D971 /* CustomToggleStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		5DE6AA1D2AE1B72E00F4D971 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DE6AA1F2AE1B72E00F4D971 /* TravelApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TravelApp.entitlements; sourceTree = "<group>"; };
 		5DE6AA212AE1B72E00F4D971 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5DE6AA2A2AE1B9CA00F4D971 /* CardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetails.swift; sourceTree = "<group>"; };
+		5DE6AA302AE1BBBA00F4D971 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		5DE6AA322AE1C67F00F4D971 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5DE6AA342AE1CDA700F4D971 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		5DE6AA382AE1DC9F00F4D971 /* CustomToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +62,9 @@
 		5DE6AA182AE1B72D00F4D971 /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				5DE6AA2C2AE1BB3B00F4D971 /* Views */,
+				5DE6AA292AE1B97700F4D971 /* Models */,
 				5DE6AA192AE1B72D00F4D971 /* TravelAppApp.swift */,
-				5DE6AA1B2AE1B72D00F4D971 /* ContentView.swift */,
 				5DE6AA1D2AE1B72E00F4D971 /* Assets.xcassets */,
 				5DE6AA1F2AE1B72E00F4D971 /* TravelApp.entitlements */,
 				5DE6AA202AE1B72E00F4D971 /* Preview Content */,
@@ -67,6 +78,34 @@
 				5DE6AA212AE1B72E00F4D971 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5DE6AA292AE1B97700F4D971 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5DE6AA2A2AE1B9CA00F4D971 /* CardDetails.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5DE6AA2C2AE1BB3B00F4D971 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5DE6AA2D2AE1BB6000F4D971 /* Components */,
+				5DE6AA342AE1CDA700F4D971 /* FeedView.swift */,
+				5DE6AA1B2AE1B72D00F4D971 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5DE6AA2D2AE1BB6000F4D971 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5DE6AA302AE1BBBA00F4D971 /* DetailsView.swift */,
+				5DE6AA322AE1C67F00F4D971 /* CardView.swift */,
+				5DE6AA382AE1DC9F00F4D971 /* CustomToggleStyle.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DE6AA1C2AE1B72D00F4D971 /* ContentView.swift in Sources */,
+				5DE6AA312AE1BBBA00F4D971 /* DetailsView.swift in Sources */,
+				5DE6AA2B2AE1B9CA00F4D971 /* CardDetails.swift in Sources */,
+				5DE6AA392AE1DC9F00F4D971 /* CustomToggleStyle.swift in Sources */,
 				5DE6AA1A2AE1B72D00F4D971 /* TravelAppApp.swift in Sources */,
+				5DE6AA352AE1CDA700F4D971 /* FeedView.swift in Sources */,
+				5DE6AA332AE1C67F00F4D971 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
