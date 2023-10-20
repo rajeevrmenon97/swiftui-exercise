@@ -33,6 +33,7 @@ struct ContentView: View {
                     Image(systemName: "suitcase")
                 }.tag(3)
         }
+        .accentColor(.primary)
     }
 }
 

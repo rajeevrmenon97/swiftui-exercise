@@ -12,6 +12,15 @@ struct CardView: View {
     var height: CGFloat
     var cardDetails: CardDetails
     
+    @State var selectedTag: String
+    
+    init(width: CGFloat, height: CGFloat, cardDetails: CardDetails) {
+        self.width = width
+        self.height = height
+        self.cardDetails = cardDetails
+        self.selectedTag = cardDetails.tags.first!
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -20,9 +29,11 @@ struct CardView: View {
                         Text("\(tag)")
                             .foregroundStyle(.black)
                     })
-                    .buttonStyle(.bordered)
-                    .tint(.yellow)
-                    
+                    .buttonStyle(.borderedProminent)
+                    .tint(
+                        selectedTag == tag ? Color("Punch1"): Color("Terracota2")
+                    )
+                    .opacity(1)
                 }
                 Spacer()
             }
@@ -32,8 +43,7 @@ struct CardView: View {
             
             DetailsView(
                 width: width * 0.9,
-                height: height * 0.3,
-                maxHeight: height * 0.85,
+                height: height,
                 cardDetails: cardDetails)
                 .padding([.bottom,.leading,.trailing], width * 0.05)
         }

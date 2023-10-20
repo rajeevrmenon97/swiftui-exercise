@@ -24,8 +24,10 @@ struct FeedView: View {
                                         width: geometryReader.size.width * 0.9,
                                         height: geometryReader.size.height * 0.8,
                                         cardDetails: card)
+                                    .shadow(color: .black, radius: 5, x: 0, y: 5)
                                     Spacer()
                                 }
+                                .listRowSeparator(.hidden)
                             }
                         }
                     }
@@ -33,6 +35,7 @@ struct FeedView: View {
                     .frame(alignment: .center)
                     .scrollIndicators(.hidden)
                 }
+                .background(Color("Sand1"))
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -47,8 +50,8 @@ struct FeedView: View {
                             option2: "Go Global",
                             width: 200,
                             height: 40,
-                            backgroundColor: .secondary,
-                            selectedBackgroundColor: .white,
+                            backgroundColor: Color("Terracota1"),
+                            selectedBackgroundColor: Color("Terracota2"),
                             foregroundColor: .primary))
                 }
                 ToolbarItem(placement: .primaryAction) {

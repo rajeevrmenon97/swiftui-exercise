@@ -34,11 +34,11 @@ class FeedViewModel: ObservableObject {
             guard let data = try? Data(contentsOf: fileURL) else {
                 return []
             }
-            let cards = try JSONDecoder().decode([CardDetails].self, from: data)
-            return cards
+            let loadedCards = try JSONDecoder().decode([CardDetails].self, from: data)
+            return loadedCards
         }
         
-        let mockCards = try await task.value
+        var mockCards = try await task.value
         
         if mockCards.isEmpty {
             var randomCards = [CardDetails]()
@@ -47,10 +47,13 @@ class FeedViewModel: ObservableObject {
                 randomCards.append(generateMockCard(true))
             }
             try await writeMockData(mockCards: randomCards)
-            self.cards = randomCards
-        } else {
+            mockCards = randomCards
+        }
+        
+        await MainActor.run { [mockCards] in
             self.cards = mockCards
         }
+        
     }
     
     private func writeMockData(mockCards: [CardDetails]) async throws {

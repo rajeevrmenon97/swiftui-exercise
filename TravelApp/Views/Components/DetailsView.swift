@@ -10,7 +10,6 @@ import SwiftUI
 struct DetailsView: View {
     var width: CGFloat
     var height: CGFloat
-    var maxHeight: CGFloat
     var cardDetails: CardDetails
     
     @State var isExpanded: Bool
@@ -19,10 +18,9 @@ struct DetailsView: View {
     
     @EnvironmentObject var feedViewModel: FeedViewModel
     
-    init(width: CGFloat, height: CGFloat, maxHeight: CGFloat, cardDetails: CardDetails) {
+    init(width: CGFloat, height: CGFloat, cardDetails: CardDetails) {
         self.width = width
         self.height = height
-        self.maxHeight = maxHeight
         self.cardDetails = cardDetails
         self.isExpanded = false
         self.isLiked = cardDetails.isLiked
@@ -95,8 +93,8 @@ struct DetailsView: View {
                 }
             }
         }
-        .frame(width: width, height: isExpanded ? maxHeight: height)
-        .background(.ultraThinMaterial)
+        .frame(width: width, height: isExpanded ? height * 0.85: height * 0.3)
+        .background(.ultraThinMaterial.shadow(.drop(color: .black, radius: 20)))
         .cornerRadius(15)
     }
 }
