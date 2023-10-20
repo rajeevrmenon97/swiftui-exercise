@@ -15,18 +15,17 @@ struct ContentView: View {
         TabView(selection: $selectedTab) {
             FeedView()
                 .tabItem {
-                    Label("", systemImage: "house")
+                    Image(systemName: "house")
                 }.tag(1)
             
             FeedView()
-                .toolbarBackground(.visible, for: .navigationBar, .tabBar)
                 .tabItem {
-                    Label("", systemImage: "plus.circle")
+                    Image(systemName: "plus.circle")
                 }.tag(2)
             
             FeedView()
                 .tabItem {
-                    Label("", systemImage: "suitcase")
+                    Image(systemName: "suitcase")
                 }.tag(3)
         }
     }

@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
+import LoremSwiftum
 
 struct CardView: View {
     var width: CGFloat
     var height: CGFloat
     var cardDetails: CardDetails
-    
     
     var body: some View {
         VStack {
@@ -31,10 +31,12 @@ struct CardView: View {
             
             Spacer()
             
-            DetailsView(width: width * 0.9, height: height * 0.3, cardDetails: cardDetails)
+            DetailsView(
+                width: width * 0.9,
+                height: height * 0.3,
+                maxHeight: height * 0.85,
+                cardDetails: cardDetails)
                 .padding([.bottom,.leading,.trailing], width * 0.05)
-            
-            
         }
         .frame(width: width, height: height)
         .background(content: {
@@ -49,7 +51,11 @@ struct CardView: View {
 struct CardViewPreview: PreviewProvider {
     
     static func getCardDetails() -> CardDetails {
-        let cardDetails = CardDetails(author: "Jane Doe", date: Date(), title: "Title", description: "Description")
+        let cardDetails = CardDetails(
+            author: Lorem.fullName,
+            date: Date(),
+            title: Lorem.title,
+            description: Lorem.paragraphs(3))
         cardDetails.tags = ["RCC", "Restaurant", "Italian"]
         return cardDetails
     }

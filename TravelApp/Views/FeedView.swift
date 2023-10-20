@@ -6,42 +6,36 @@
 //
 
 import SwiftUI
+import LoremSwiftum
 
 struct FeedView: View {
     var cards = [CardDetails]()
     @State var toggleState = false
     
     init() {
-        let card1 = CardDetails(author: "John Doe", date: Date(), title: "John's card", description: "Long description john")
+        let card1 = CardDetails(
+            author: "John Doe",
+            date: Date(),
+            title: "Post 1",
+            description: Lorem.paragraphs(3))
         card1.tags = ["RCC", "Experience", "Class"]
-        let card2 = CardDetails(author: "Jane Doe", date: Date(), title: "Jane's card", description: "Long description john")
+        
+        let card2 = CardDetails(
+            author: "Jane Doe",
+            date: Date(),
+            title: "Post 2",
+            description: Lorem.paragraphs(3))
         card2.tags = ["RCC", "Restaurant", "Italian"]
+        
         cards.append(card1)
         cards.append(card2)
     }
     
     var body: some View {
-        GeometryReader { geometryReader in
-            VStack {
-                HStack {
-                    Image(systemName: "line.3.horizontal.decrease.circle")
-                        .font(.title)
-                    Spacer()
-                    Toggle(isOn: $toggleState, label: {})
-                        .toggleStyle(CustomToggleStyle(
-                            option1: "Stay Local",
-                            option2: "Go Global",
-                            width: geometryReader.size.width * 0.5,
-                            height: geometryReader.size.height * 0.05,
-                            backgroundColor: .secondary,
-                            selectedBackgroundColor: .white,
-                            foregroundColor: .primary))
-                    Spacer()
-                    Image(systemName: "person.circle")
-                        .font(.title)
-                } .padding([.leading, .trailing], geometryReader.size.width * 0.06)
-                ScrollView {
-                    LazyVStack {
+        NavigationStack {
+            GeometryReader { geometryReader in
+                VStack {
+                    List {
                         ForEach(cards) { card in
                             HStack {
                                 Spacer()
@@ -54,11 +48,33 @@ struct FeedView: View {
                             
                         }
                     }
+                    .listStyle(.plain)
+                    .frame(alignment: .center)
+                    .scrollIndicators(.hidden)
                 }
-                .frame(alignment: .center)
-                .scrollIndicators(.hidden)
             }
-            
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Image(systemName: "line.3.horizontal.decrease.circle")
+                        .font(.title)
+                }
+                ToolbarItem(placement: .principal) {
+                    Toggle(isOn: $toggleState, label: {})
+                        .toggleStyle(CustomToggleStyle(
+                            option1: "Stay Local",
+                            option2: "Go Global",
+                            width: 200,
+                            height: 40,
+                            backgroundColor: .secondary,
+                            selectedBackgroundColor: .white,
+                            foregroundColor: .primary))
+                }
+                ToolbarItem(placement: .primaryAction) {
+                    Image(systemName: "person.circle")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                }
+            }
         }
     }
 }
