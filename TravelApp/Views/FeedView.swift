@@ -9,34 +9,15 @@ import SwiftUI
 import LoremSwiftum
 
 struct FeedView: View {
-    var cards = [CardDetails]()
+    @EnvironmentObject var feedViewModel: FeedViewModel
     @State var toggleState = false
-    
-    init() {
-        let card1 = CardDetails(
-            author: "John Doe",
-            date: Date(),
-            title: "Post 1",
-            description: Lorem.paragraphs(3))
-        card1.tags = ["RCC", "Experience", "Class"]
-        
-        let card2 = CardDetails(
-            author: "Jane Doe",
-            date: Date(),
-            title: "Post 2",
-            description: Lorem.paragraphs(3))
-        card2.tags = ["RCC", "Restaurant", "Italian"]
-        
-        cards.append(card1)
-        cards.append(card2)
-    }
     
     var body: some View {
         NavigationStack {
             GeometryReader { geometryReader in
                 VStack {
                     List {
-                        ForEach(cards) { card in
+                        ForEach(feedViewModel.cards) { card in
                             HStack {
                                 Spacer()
                                 CardView(
@@ -45,7 +26,6 @@ struct FeedView: View {
                                     cardDetails: card)
                                 Spacer()
                             }
-                            
                         }
                     }
                     .listStyle(.plain)
@@ -81,4 +61,5 @@ struct FeedView: View {
 
 #Preview {
     FeedView()
+        .environmentObject(FeedViewModel())
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D488DD72AE1EAEB004BD4ED /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 5D488DD62AE1EAEB004BD4ED /* LoremSwiftum */; };
+		5D488DDA2AE20CDC004BD4ED /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D488DD92AE20CDC004BD4ED /* FeedViewModel.swift */; };
 		5DE6AA1A2AE1B72D00F4D971 /* TravelAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6AA192AE1B72D00F4D971 /* TravelAppApp.swift */; };
 		5DE6AA1C2AE1B72D00F4D971 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6AA1B2AE1B72D00F4D971 /* ContentView.swift */; };
 		5DE6AA1E2AE1B72E00F4D971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6AA1D2AE1B72E00F4D971 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D488DD92AE20CDC004BD4ED /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		5DE6AA162AE1B72D00F4D971 /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE6AA192AE1B72D00F4D971 /* TravelAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppApp.swift; sourceTree = "<group>"; };
 		5DE6AA1B2AE1B72D00F4D971 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D488DD82AE20CCC004BD4ED /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5D488DD92AE20CDC004BD4ED /* FeedViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		5DE6AA0D2AE1B72D00F4D971 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		5DE6AA182AE1B72D00F4D971 /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				5D488DD82AE20CCC004BD4ED /* ViewModels */,
 				5DE6AA2C2AE1BB3B00F4D971 /* Views */,
 				5DE6AA292AE1B97700F4D971 /* Models */,
 				5DE6AA192AE1B72D00F4D971 /* TravelAppApp.swift */,
@@ -192,6 +203,7 @@
 				5DE6AA392AE1DC9F00F4D971 /* CustomToggleStyle.swift in Sources */,
 				5DE6AA1A2AE1B72D00F4D971 /* TravelAppApp.swift in Sources */,
 				5DE6AA352AE1CDA700F4D971 /* FeedView.swift in Sources */,
+				5D488DDA2AE20CDC004BD4ED /* FeedViewModel.swift in Sources */,
 				5DE6AA332AE1C67F00F4D971 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
