@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LoremSwiftum
 
 struct FeedView: View {
     @EnvironmentObject var feedViewModel: FeedViewModel
@@ -18,13 +17,15 @@ struct FeedView: View {
                 VStack {
                     List {
                         ForEach(feedViewModel.cards) { card in
-                            HStack {
-                                Spacer()
-                                CardView(
-                                    width: geometryReader.size.width * 0.9,
-                                    height: geometryReader.size.height * 0.8,
-                                    cardDetails: card)
-                                Spacer()
+                            if card.isGlobal == toggleState {
+                                HStack {
+                                    Spacer()
+                                    CardView(
+                                        width: geometryReader.size.width * 0.9,
+                                        height: geometryReader.size.height * 0.8,
+                                        cardDetails: card)
+                                    Spacer()
+                                }
                             }
                         }
                     }

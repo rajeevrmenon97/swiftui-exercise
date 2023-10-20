@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LoremSwiftum
 
 struct CardView: View {
     var width: CGFloat
@@ -38,6 +37,7 @@ struct CardView: View {
                 cardDetails: cardDetails)
                 .padding([.bottom,.leading,.trailing], width * 0.05)
         }
+        
         .frame(width: width, height: height)
         .background(content: {
             Image("StockBackground")
@@ -48,19 +48,6 @@ struct CardView: View {
     }
 }
 
-struct CardViewPreview: PreviewProvider {
-    
-    static func getCardDetails() -> CardDetails {
-        let cardDetails = CardDetails(
-            author: Lorem.fullName,
-            date: Date(),
-            title: Lorem.title,
-            description: Lorem.paragraphs(3))
-        cardDetails.tags = ["RCC", "Restaurant", "Italian"]
-        return cardDetails
-    }
-    
-    static var previews: some View {
-        CardView(width: 350, height: 600, cardDetails: getCardDetails())
-    }
+#Preview {
+    ContentView()
 }

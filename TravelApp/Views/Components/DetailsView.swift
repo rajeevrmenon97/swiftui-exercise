@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LoremSwiftum
 
 struct DetailsView: View {
     var width: CGFloat
@@ -14,14 +13,20 @@ struct DetailsView: View {
     var maxHeight: CGFloat
     var cardDetails: CardDetails
     
-    @State var isExpanded = false
+    @State var isExpanded: Bool
+    @State var isLiked: Bool
+    @State var isPinned: Bool
+    
+    @EnvironmentObject var feedViewModel: FeedViewModel
     
     init(width: CGFloat, height: CGFloat, maxHeight: CGFloat, cardDetails: CardDetails) {
         self.width = width
         self.height = height
         self.maxHeight = maxHeight
         self.cardDetails = cardDetails
-        print(self.height)
+        self.isExpanded = false
+        self.isLiked = cardDetails.isLiked
+        self.isPinned = cardDetails.isPinned
     }
     
     var body: some View {
@@ -36,8 +41,24 @@ struct DetailsView: View {
                 
                 Spacer()
                 
-                Image(systemName: "heart")
-                Image(systemName: "pin.fill")
+                Image(systemName: isLiked ? "heart.fill": "heart")
+                    .onTapGesture {
+                        isLiked.toggle()
+                        cardDetails.isLiked.toggle()
+                        Task {
+                            try await feedViewModel.saveMockData()
+                        }
+                    }
+                
+                Image(systemName: isPinned ? "pin.fill": "pin")
+                    .onTapGesture {
+                        isPinned.toggle()
+                        cardDetails.isPinned.toggle()
+                        Task {
+                            try await feedViewModel.saveMockData()
+                        }
+                    }
+                
                 Image(systemName: "bubble.left.and.bubble.right")
                 Text("\(cardDetails.numComments)")
                     .font(.caption)
@@ -80,16 +101,6 @@ struct DetailsView: View {
     }
 }
 
-struct DetailViewPreview: PreviewProvider {
-    static var previews: some View {
-        DetailsView(
-            width: 350,
-            height: 200,
-            maxHeight: 400,
-            cardDetails: CardDetails(
-                author: Lorem.fullName,
-                date: Date(),
-                title: Lorem.title,
-                description: Lorem.paragraphs(3)))
-    }
+#Preview {
+    ContentView()
 }
